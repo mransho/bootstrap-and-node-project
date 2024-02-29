@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="../js/color-modes.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.118.2" />
+    <title>Edit page</title>
+
+    <link
+      rel="stylesheet"
+      href="../bootstrap-icons-1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/sidebars/"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+    />
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/dark-light.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <link href="../css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <%- include('../Components/dark-light.ejs') %>
+
+    <main class="d-flex flex-nowrap">
+      <%- include('../Components/Sidebar.ejs', {thisPage:"edit"}) %>
+      <section class="w-100">
+        <%- include('../Components/navbar.ejs') %>
+        <div class="ms-auto me-auto ID-Customer">
+          <span class="fw-bold">ID Customer :</span>
+            <%= Obj._id %>
+        </div>
+        <form action="/edit/<%= Obj._id %>?_method=PUT" method="post" class="row gx-3 gy-4 mt-2 ms-auto me-auto">
+          <div class="col-md-6">
+            <label for="FirstName" class="form-label">First Name:</label>
+            <input name="FirstName"
+              value="<%= Obj.FirstName %>"
+              type="text"
+              class="form-control"
+              id="FirstName"
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Last Name:</label>
+            <input name="LastName"
+              value="<%= Obj.LastName %>"
+              type="text"
+              class="form-control"
+              id="LastName"
+            />
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Email:</label>
+            <input name="email"
+              type="email"
+              class="form-control"
+              id="Email"
+              value="<%= Obj.Email %>"
+            />
+          </div>
+          <div class="col-12">
+            <label for="Telephone" class="form-label">Telephone:</label>
+            <input name="Telephone"
+              type="number"
+              class="form-control"
+              id="Telephone"
+              value="<%= Obj.Telephone %>"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="Age" class="form-label">Age:</label>
+            <input name="Age"
+              value="<%= Obj.Age %>"
+              type="Age"
+              class="form-control"
+              id="Age"
+            />
+          </div>
+          <div class="col-md-4">
+            <label for="Country" class="form-label">Country:</label>
+            <select name="Country" id="Country" class="form-select">
+              <option disabled selected hidden>Choose here ...</option>
+              <% var country_list = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"]; %>
+              <% country_list.forEach(item => { %>
+              <option <%= item === Obj.Country ? "selected" : null %> ><%= item %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="Gender" class="form-label">Gender:</label>
+            <select name="Gender" id="Gender" class="form-select">
+              <option  disabled selected hidden>your Gender</option>
+              <option <%= "Male" === Obj.Gender ? "selected" : null %> >Male</option>
+              <option <%= "Female" === Obj.Gender ? "selected" : null %> >Female</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">
+              Update changes
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Delete Customer
+            </button>
+          </div>
+        </form>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  are you sure from Delete Customer?
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                if you delete customer you can't Back off this
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+
+                <form
+                  action="/edit/<%= Obj._id %>?_method=DELETE"
+                  method="post"
+                >
+                  <button type="submit" class="btn btn-danger">
+                    Delete Customer
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <script src="../js/sidebars.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>
