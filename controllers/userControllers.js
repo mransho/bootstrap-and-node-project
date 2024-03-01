@@ -5,7 +5,7 @@ const User = require("../models/customerSchema");
 
 //view all customers
 const view_all_customers = (req, res) => {
-  console.log("one")
+  console.log("2")
   User.find()
     .then((result) => {
       res.render("index", { arr: result, moment: moment });
