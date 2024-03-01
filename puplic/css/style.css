@@ -2,22 +2,28 @@
   margin-right: 1rem;
   font-size: 1.9rem;
 }
+
 form {
   max-width: 500px;
 }
+
 .contTable {
   width: 99%;
   overflow: scroll;
 }
+
 .contTable::-webkit-scrollbar {
   width: 0px;
 }
+
 table {
   min-width: 560px;
 }
+
 section::-webkit-scrollbar {
   width: 0px;
 }
+
 main {
   min-height: 100vh;
 }
@@ -33,65 +39,123 @@ main {
   /* height: 100%; */
   min-height: 100vh;
 }
+
 section {
   overflow: scroll;
 }
-form .col-12 .btn-danger {
-}
+
+form .col-12 .btn-danger {}
+
 .ID-Customer {
   max-width: 500px;
   padding: 8px;
 }
+
 @media (max-width: 609px) {
   form .col-12 .btn-danger {
     margin-top: 7px;
   }
 }
+
+/* ======================================================================================= */
 .sidebare {
-  width: 280px;
   transition: .3s;
-}
-.small-sidebare {
   width: 55px;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
 }
-.small-sidebare .non-text {
+
+.sidebare .non-text {
   display: none;
 }
-.small-sidebare .active {
+
+.sidebare .active {
   width: 48px;
 }
-.bi-lightning-charge::before{
-  margin-right: auto;
-}
-.small-sidebare > a {
+
+.sidebare>a {
   margin-right: auto;
   margin-left: auto;
 }
+
+.sidebare .bi-lightning-charge::before {
+  margin-top: 3.1rem;
+  margin-right: auto;
+  content: "\F46c";
+  margin-top: 3.1rem;
+}
+
+
+.sidebare .bi-x-circle::before {
+  content: "\F134";
+  font-size: 1.6rem;
+}
+
 .Sidebar-span {
   margin-left: 45px;
 }
-/* .bi-lightning-charge {
-  rotate: 360deg;
-  transition: 6s;
-} */
-.bi-lightning-charge::before{
+
+
+
+
+.bi-lightning-charge::before {
   rotate: 360deg;
   transition: .5s;
   rotate: 34deg;
 }
-.small-sidebare .bi-lightning-charge::before{
+
+.bi-x-circle {
+  font-size: 1.6rem;
+}
+
+/* ================================================================ */
+.big-sidebare {
+  width: 280px;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+.big-sidebare .non-text {
+  display: inline;
+}
+
+.big-sidebare .active {
+  width: 100%;
+}
+
+
+.big-sidebare>a {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.big-sidebare .bi-lightning-charge::before {
+  margin-top: auto;
+  content: "\f46d";
+  transform: rotateY(360deg);
+  transition: .5s;
+  rotate: 34deg;
+  margin-top: 0rem;
+}
+
+.big-sidebare .bi-x-circle::before {
+  content: "\f623";
+  font-size: 1.6rem;
+}
+
+.small-sidebare {}
+
+/* .big-sidebare .bi-lightning-charge::before{
   margin-top: 3.1rem;
 }
-.small-sidebare .bi-lightning-charge::before{
+.big-sidebare .bi-lightning-charge::before{
   content: "\F46c";
   transform: rotateY(360deg);
   transition: .5s;
   rotate: 34deg;
-}
-.bi-x-circle {
-  font-size: 1.6rem;
-}
-.small-sidebare .bi-x-circle::before {
+} */
+
+/* .big-sidebare .bi-x-circle::before {
   content: "\F134";
   font-size: 1.6rem;
-}
+} */

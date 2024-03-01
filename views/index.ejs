@@ -89,21 +89,62 @@
                   >
                     <i class="bi bi-pencil"></i>
                   </a>
-                  <form
-                    style="display: inline"
-                    action="/edit/<%= item._id %>?_method=DELETE"
-                    method="post"
+
+                  <button
+                    type="button"
+                    class="btn btn-danger btn-sm"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteModal_<%= item._id %>"
                   >
-                    <button
-                      data-bs-toggle="tooltip"
-                      data-bs-title="Delete User"
-                      class="btn btn-danger btn-sm"
-                    >
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </form>
+                    
+                    <i class="bi bi-trash"></i>
+                  </button>
                 </td>
+                <div
+                  class="modal fade"
+                  id="deleteModal_<%= item._id %>"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">
+                          are you sure from Delete Customer?
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        if you delete customer you can't Back off this
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <form
+                          action="/edit/<%= item._id %>?_method=DELETE"
+                          method="post"
+                        >
+                          <button type="submit" class="btn btn-danger">
+                            Delete Customer
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </tr>
+
               <% }) %>
             </tbody>
           </table>

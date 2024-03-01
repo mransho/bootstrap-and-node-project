@@ -46,7 +46,7 @@ const view_add_user = (req, res) => {
 const add_user = (req, res) => {
   User.create(req.body)
     .then(() => {
-      res.redirect("/user/add.html");
+      res.redirect("/");
     })
     .catch((err) => {
       console.log(err);
