@@ -5,6 +5,7 @@ const User = require("../models/customerSchema");
 
 //view all customers
 const view_all_customers = (req, res) => {
+  console.log("2")
   User.find()
     .then((result) => {
       res.render("index", { arr: result, moment: moment });
@@ -46,7 +47,7 @@ const view_add_user = (req, res) => {
 const add_user = (req, res) => {
   User.create(req.body)
     .then(() => {
-      res.redirect("/user/add.html");
+      res.redirect("/");
     })
     .catch((err) => {
       console.log(err);
